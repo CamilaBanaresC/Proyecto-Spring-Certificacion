@@ -1,0 +1,257 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Aplicacion Cursos Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<a href="javascript: history.go(-1)">Volver atrás</a>
+<br>
+<br>
+<br>
+<br>
+<center><h2>Bienvenido Administrador</h2></center>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title">Data <span>List</span></h4>
+                        </div>
+                        <div class="col-sm-9 col-xs-12 text-right">
+                            <div class="btn_group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <button class="btn btn-default" title="Reload"><i class="fa fa-sync-alt"></i></button>
+                                <button class="btn btn-default" title="Pdf"><i class="fa fa-file-pdf"></i></button>
+                                <button class="btn btn-default" title="Excel"><i class="fas fa-file-excel"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Termino</th>
+                                <th>Descripcion</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-th-each="cur : ${cursos}">
+                                <td>[[${cur.nombre}]]</td>
+                                <td>[[${cur.fecinicio}]]</td>
+                                <td>[[${cur.fectermino}]]</td>
+                                <td>[[${cur.descripcion}]]</td>
+                                <td><a th:href="@{/obtiene/{id}(id=${cur.id})}">Ver </a>
+                <a th:href="@{/admin/editarCurso/{id}(id=${cur.id})}"> 🛠️</a></td> 
+                 <td><a th:href="@{/admin/eliminarCurso/{id}(id=${cur.id})}"> 🗑️</a> 
+                <a th:href="@{/admin/agregarContenido/{id}(id=${cur.id})}"> Añadir Contenido ➕</a></td>
+                                <td>
+                                    <ul class="action-list">
+                                        <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
+                                        <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries</div>
+                        <div class="col-sm-6 col-xs-6">
+                            <ul class="pagination hidden-xs pull-right">
+                                <li><a href="#"><</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">></a></li>
+                            </ul>
+                            <ul class="pagination visible-xs pull-right">
+                                <li><a href="#"><</a></li>
+                                <li><a href="#">></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+<center><button class="button-88" role="button">  <a th:href="@{/admin/crearCurso/}">Crear Curso</a></button></center>
+</div>
+
+
+<style>
+body{
+	background-image: url("https://acegif.com/wp-content/gif/confetti-44.gif");
+	background-attachment: fixed;
+	  background-attachment: fixed;
+ 	 background-position: center center;
+  		background-size: cover;
+}
+
+
+
+.button-88 {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(192, 192, 192) 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em rgb(128, 128, 128);
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-88:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.button-88:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+
+
+demo{ font-family: 'Noto Sans', sans-serif; }
+.panel{
+    background: linear-gradient(to right, #2980b9, #2c3e50);
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05);
+}
+.panel .panel-heading{
+    padding: 20px 15px;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+}
+.panel .panel-heading .title{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 40px;
+    margin: 0;
+}
+.panel .panel-heading .btn{
+    color: rgba(255,255,255,0.5);
+    background: transparent;
+    font-size: 16px;
+    text-transform: capitalize;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .btn:hover{
+    color: #fff;
+    text-shadow: 3px 3px rgba(255,255,255,0.2);
+}
+.panel .panel-heading .form-control{
+    color: #fff;
+    background-color: transparent;
+    width: 35%;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .form-control:focus{
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: none;
+    outline: none;
+}
+.panel .panel-heading .form-control::placeholder{
+    color: rgba(255,255,255,0.5);
+    font-size: 15px;
+    font-weight: 500;
+}
+.panel .panel-body{ padding: 0; }
+.panel .panel-body .table thead tr th{
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    border: none;
+}
+.panel .panel-body .table tbody tr td{
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 12px;
+    vertical-align: middle;
+    border: none;
+}
+.panel .panel-body .table tbody tr:nth-child(even){ background-color: rgba(255,255,255,0.05); }
+.panel .panel-body .table tbody .action-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.panel .panel-body .table tbody .action-list li{
+    display: inline-block;
+    margin: 0 5px;
+}
+.panel .panel-body .table tbody .action-list li a{
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+
+
+
+</style>
