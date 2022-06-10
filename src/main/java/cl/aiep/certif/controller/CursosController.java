@@ -116,7 +116,7 @@ public class CursosController {
 	public String verCurso(final Model model, @PathVariable Integer id) {
 		
 		model.addAttribute("curso", service.obtenerCurso(id));
-		
+		model.addAttribute("contenido", service.obtenerContenidos(id));
 	return "curso";
 	}
 

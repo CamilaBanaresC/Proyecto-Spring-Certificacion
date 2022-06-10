@@ -9,16 +9,16 @@
 </head>
 <body>
 
-<div class="container">
-<h2>Usuario</h2>
+<div class="container" >
+<h2>Compañeros</h2>
 
 	<div class="row">
          <table id="allEstud" class="table table-striped">
             <thead>
             <tr class="table-info">
+            <th  width="20%">Perfil</th>
                 <th  width="20%">RUT</th>
                 <th>Nombre</th>
-                <th>Telefono</th>
                 <th>Email</th>
                  <th>IdCurso</th>
                 
@@ -26,9 +26,9 @@
             </thead>
             <tbody>
             <tr class="table-danger" data-th-each="est : ${estudiantes}">
+             <td>&#129409;</td>
                 <td>[[${est.rut}]]</td>
                 <td>[[${est.nombre}]]</td>
-                <td>[[${est.telefono}]]</td>
                  <td>[[${est.email}]]</td>
                  <td>[[${est.idCurso}]]</td>
             </tr>

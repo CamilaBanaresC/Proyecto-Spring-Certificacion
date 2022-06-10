@@ -26,13 +26,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr  class="table-info" data-th-each="cur : ${cursos}">
+            <tr  class="table-info" data-th-each="cur : ${cursos}" >
                 <td>[[${cur.nombre}]]</td>
                 <td>[[${cur.fecinicio}]]</td>
                 <td>[[${cur.fectermino}]]</td>
                  <td>[[${cur.descripcion}]]</td>
                  
-                <td><a th:href="@{/obtiene/{id}(id=${cur.id})}">Ver </a> 
+                <td><a th:href="@{/obtiene/{id}(id=${cur.id})}"><button type="button" class="btn btn-outline-primary">ver</button> </a>
                  
             </tr>
             </tbody>
